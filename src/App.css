@@ -1,0 +1,90 @@
+/* Reset default spacing and fonts */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #111;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main container */
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+/* Headings */
+h1, h2, h3 {
+  margin-bottom: 0.5rem;
+}
+
+p, li {
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+section {
+  margin-top: 3rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Dark and Light themes */
+body.dark {
+  background-color: #111;
+  color: #f0f0f0;
+}
+
+body.light {
+  background-color: #fff;
+  color: #111;
+}
+
+.toggle-btn {
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid #888;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+
+}
