@@ -1,0 +1,58 @@
+/* src/components/Contact.css */
+
+.contact {
+    padding: 100px 20px;
+    background-color: var(--bg);
+    color: var(--text);
+    text-align: center;
+  }
+  
+  .contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .email-link {
+    display: inline-block;
+    margin: 10px 0 30px;
+    color: var(--accent);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .email-link:hover {
+    text-decoration: underline;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  
+  .contact-form button {
+    align-self: flex-start;
+  }
+  

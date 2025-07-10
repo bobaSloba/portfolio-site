@@ -1,0 +1,61 @@
+/* src/components/Hero.css */
+
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--bg);
+    color: var(--text);
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    color: var(--text);
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s ease all;
+  }
+  
+  .btn.primary {
+    background-color: var(--accent);
+    color: white;
+  }
+  
+  .btn.primary:hover {
+    background-color: #1a76d2;
+  }
+  
+  .btn.secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  
+  .btn.secondary:hover {
+    background-color: var(--accent);
+    color: white;
+  }
+  

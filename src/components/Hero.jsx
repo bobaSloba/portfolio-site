@@ -1,30 +1,18 @@
-function Hero() {
-    return (
-      <header className="hero" style={{ textAlign: 'center' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h1>Slobodan Jevtić</h1>
-          <img
-  src="/logo.png"
-  alt="Slobodan Jevtić's Logo"
-  style={{
-    width: '100px',
-    height: '100px',
-    marginBottom: '1rem',
-    borderRadius: '50%',
-    border: '2px solid white'
-  }}
-/>
+// src/components/Hero.jsx
+import React from 'react';
+import './Hero.css';
 
-          <h2>@bobaSloba</h2>
+export default function Hero() {
+  return (
+    <div className="hero">
+      <div className="hero-content">
+        <h1 className="hero-title">Hi, I'm Slobodan Jevtić</h1>
+        <p className="hero-subtitle">Self-Taught Developer | Python & React Enthusiast</p>
+        <div className="hero-buttons">
+          <a href="#projects" className="btn primary">View Projects</a>
+          <a href="#contact" className="btn secondary">Contact Me</a>
         </div>
-        <ul>
-          <li>Learning in public</li>
-          <li>Building in Python</li>
-          <li>Web & Crypto</li>
-        </ul>
-      </header>
-    );
-  }
-  
-  export default Hero;
-  
+      </div>
+    </div>
+  );
+}
