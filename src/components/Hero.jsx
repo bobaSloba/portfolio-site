@@ -1,12 +1,12 @@
 // src/components/Hero.jsx
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Hero.css';
 import Reveal from './reveal'; // Assuming this is correctly imported
 import { Particles, initParticlesEngine } from '@tsparticles/react';
 import { loadFull } from 'tsparticles';
 
 export default function Hero() {
-  const [init, setInit] = React.useState(false);
+  const [init, setInit] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -19,10 +19,11 @@ export default function Hero() {
   if (!init) return null; // Don't render until initialized
 
   return (
-    <div style={{ position: 'relative', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', overflow: 'hidden', height: '80vh' }}> {/* Fixed height for containment */}
       <Particles
         id="tsparticles"
         options={{
+          fullScreen: { enable: false }, // Prevent full-screen takeover
           background: { color: { value: 'transparent' } },
           fpsLimit: 60,
           particles: {
@@ -30,9 +31,9 @@ export default function Hero() {
             color: { value: '#007bff' },
             shape: { type: 'circle' },
             opacity: { value: 0.5 },
-            size: { value: { min: 1, max: 3 }, random: true, anim: { enable: false } }, // Added min/max' for better v3 compatibility
+            size: { value: { min: 1, max: 3 }, random: true, anim: { enable: false } },
             links: { enable: true, distance: 150, color: '#007bff', opacity: 0.4, width: 1 },
-            move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, outModes: { default: 'out' } }
+            move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, outModes: { default: 'bounce' } } // Destroy escaped particles
           },
           interactivity: {
             events: { onHover: { enable: true, mode: 'repulse' }, onClick: { enable: true, mode: 'push' } },
@@ -40,7 +41,7 @@ export default function Hero() {
           },
           detectRetina: true
         }}
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none' }} // Allow clicks through
       />
       <div className="hero">
         <div className="hero-content">
@@ -61,4 +62,3 @@ export default function Hero() {
     </div>
   );
 }
-

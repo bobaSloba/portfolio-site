@@ -5,6 +5,7 @@
     background: var(--primary-bg); /* Light blue BG */
     color: var(--text);
     position: relative; /* For particles layering */
+    overflow: hidden; /* Extra clipping */
   }
   
   .hero-content {
@@ -29,6 +30,16 @@
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+  }
+  
+  /* Force containment on particles canvas */
+  #tsparticles {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important; /* Backup for click-through */
   }
   
   /* Particles override if needed - in Hero.jsx options, change color: { value: '#007bff' } for blue particles */

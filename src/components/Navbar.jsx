@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="logo">Slobodan.dev</div>
+        <div className="logo">econdev</div>
         <ul className="nav-links">
           <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>

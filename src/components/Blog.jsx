@@ -1,13 +1,13 @@
 // src/components/Blog.jsx
 import React, { useState, useEffect } from 'react';
 import Reveal from './reveal';
-import "./Projects.css";  // Keep if you want card styles; delete line if error persists
+import "./Projects.css";  
 import VanillaTilt from 'vanilla-tilt';
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch('https://dev.to/feed/econdev')  // Replace 'slobodanjevtic' with your DEV.to username
+    fetch('https://dev.to/feed/econdev')  
       .then(response => response.text())
       .then(str => new DOMParser().parseFromString(str, 'text/xml'))
       .then(data => {
@@ -15,7 +15,7 @@ export default function Blog() {
         const parsedPosts = Array.from(items).slice(0, 3).map(item => ({
           title: item.querySelector('title').textContent,
           link: item.querySelector('link').textContent,
-          description: item.querySelector('description').textContent.slice(0, 150) + '...'
+          description: item.querySelector('description').textContent.slice(0, 150).trim() + '...'
         }));
         setPosts(parsedPosts);
       })
@@ -50,6 +50,9 @@ export default function Blog() {
               </div>
             </Reveal>
           ))}
+        </div>
+        <div className="view-more" style={{ textAlign: 'center', marginTop: '20px' }}>
+          <a href="https://dev.to/econdev" target="_blank" rel="noopener noreferrer" className="btn primary">View More on DEV.to</a>
         </div>
       </div>
     </div>
