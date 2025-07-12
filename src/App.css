@@ -1,114 +1,100 @@
-/* Reset default spacing and fonts */
+/* App.css - Global resets and color scheme */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #111;
-  color: #f0f0f0;
+  background-color: #ffffff; /* White overall BG */
+  color: var(--text);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
 
-/* Main container */
+:root {
+  --primary-bg: #f0f8ff; /* Light blue for Hero */
+  --secondary-bg: #f8f9fa; /* Light gray for cards/forms */
+  --text: #333333; /* Dark gray text */
+  --accent: #007bff; /* Blue for buttons/links */
+  --border: #dee2e6; /* Light gray borders */
+  --input-bg: #ffffff; /* White inputs */
+  --shadow: rgba(0, 0, 0, 0.1); /* Soft shadows */
+  --bg: #ffffff; /* White background for visibility */
+}
 
 .container {
-  max-width: 800px;
-  width: 100%;
-  padding: 2rem;
-  text-align: center;
-  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: block;
   flex-direction: column;
   gap: 2rem;
 }
 
-
-/* Headings */
+/* Headings, links, etc. */
 h1, h2, h3 {
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 
 p, li {
+  color: var(--text);
   line-height: 1.6;
 }
 
-/* Links */
 a {
-  color: #00bcd4;
+  color: var(--accent);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
+}
+
+.btn {
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue hover */
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn.secondary:hover {
+  background-color: var(--accent);
+  color: #ffffff;
 }
 
 /* Sections */
 section {
   margin-top: 3rem;
+  scroll-margin-top: 80px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .container {
     padding: 1rem;
   }
-
-  h1 {
-    font-size: 1.75rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-  }
-
-  /* Dark and Light themes */
-body.dark {
-  background-color: #111;
-  color: #f0f0f0;
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.8rem; }
 }
 
-body.light {
-  background-color: #fff;
-  color: #111;
-}
-
-.toggle-btn {
-  background-color: transparent;
-  color: inherit;
-  border: 1px solid #888;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  align-self: flex-end;
-}
-/* App.css */
-
-body.dark {
-  --bg: #0d1117;
-  --text: #e6edf3;
-  --border: #30363d;
-  --accent: #58a6ff;
-  background-color: var(--bg);
-  color: var(--text);
-}
-
-body.light {
-  --bg: #ffffff;
-  --text: #111111;
-  --border: #ddd;
-  --accent: #1e90ff;
-  background-color: var(--bg);
-  color: var(--text);
-}
-
-.container {
-  font-family: sans-serif;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  section { padding: 40px 10px; }
 }

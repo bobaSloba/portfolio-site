@@ -1,15 +1,17 @@
 /* src/components/Hero.css */
-
 .hero {
     padding: 100px 20px;
     text-align: center;
-    background: var(--bg);
+    background: var(--primary-bg); /* Light blue BG */
     color: var(--text);
+    position: relative; /* For particles layering */
   }
   
   .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Content above particles */
   }
   
   .hero-title {
@@ -20,7 +22,6 @@
   .hero-subtitle {
     font-size: 1.25rem;
     margin-bottom: 40px;
-    color: var(--text);
   }
   
   .hero-buttons {
@@ -30,32 +31,4 @@
     flex-wrap: wrap;
   }
   
-  .btn {
-    padding: 12px 24px;
-    border: none;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: 0.3s ease all;
-  }
-  
-  .btn.primary {
-    background-color: var(--accent);
-    color: white;
-  }
-  
-  .btn.primary:hover {
-    background-color: #1a76d2;
-  }
-  
-  .btn.secondary {
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-  }
-  
-  .btn.secondary:hover {
-    background-color: var(--accent);
-    color: white;
-  }
-  
+  /* Particles override if needed - in Hero.jsx options, change color: { value: '#007bff' } for blue particles */

@@ -1,8 +1,7 @@
 /* src/components/Contact.css */
-
 .contact {
     padding: 100px 20px;
-    background-color: var(--bg);
+    background: var(--bg); /* White */
     color: var(--text);
     text-align: center;
   }
@@ -34,25 +33,36 @@
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
+    background: var(--secondary-bg); /* Light gray form BG */
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
   }
   
   .contact-form input,
   .contact-form textarea {
     padding: 12px;
-    border: 2px solid var(--border);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    background-color: #1e1e1e;
-    color: white;
+    background: var(--input-bg); /* White inputs */
+    color: var(--text);
     font-size: 1rem;
   }
   
   .contact-form input:focus,
   .contact-form textarea:focus {
     outline: none;
-    border-color: var(--accent);
+    border-color: var(--accent); /* Blue focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
   }
   
   .contact-form button {
     align-self: flex-start;
   }
   
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contact-form {
+      padding: 15px;
+    }
+  }
