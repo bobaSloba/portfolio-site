@@ -98,3 +98,82 @@ html {
   h2 { font-size: 1.5rem; }
   section { padding: 40px 10px; }
 }
+/* Enhanced Mobile Responsiveness */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Reduce padding for more space */
+  }
+
+  .navbar-container {
+    flex-direction: column; /* Stack logo and links vertically if needed */
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column; /* Make navbar links stack */
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero {
+    padding: 50px 10px; /* Less top padding on mobile */
+    height: auto; /* Let it flow naturally */
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr; /* Force single column stack */
+  }
+
+  .contact-form {
+    padding: 15px;
+  }
+
+  section {
+    padding: 50px 10px; /* Reduce section padding */
+    scroll-margin-top: 60px; /* Adjust for sticky navbar height */
+  }
+}
+
+/* Phones and below */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem; /* Smaller headings */
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 10px 20px; /* Smaller buttons */
+    width: 100%; /* Full-width for hero/contact buttons */
+    margin-bottom: 10px;
+  }
+
+  .hero-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .nav-links {
+    font-size: 0.9rem; /* Smaller text */
+  }
+
+  .footer-container {
+    text-align: center;
+  }
+
+  .socials {
+    flex-direction: column;
+  }
+
+  /* Fix potential particle overflow */
+  #tsparticles {
+    height: 100% !important; /* Ensure it doesn't exceed container */
+  }
+}

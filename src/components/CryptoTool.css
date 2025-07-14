@@ -1,0 +1,114 @@
+.crypto-tool-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    color: #00ff00;
+    font-family: monospace;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased; /* Better rendering on Mac */
+    -moz-osx-font-smoothing: grayscale; /* For Firefox on Mac */
+  }
+  
+  .crypto-tool-container h1 {
+    color: #00ff00;
+    text-align: center;
+  }
+  
+  .crypto-tool-container p {
+    text-align: center;
+  }
+  
+  .crypto-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .crypto-select,
+  .crypto-input {
+    padding: 10px;
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+  }
+  
+  .crypto-select {
+    margin-right: 10px;
+  }
+  
+  .crypto-input {
+    flex: 1; /* Grow to fill space, better than fixed 50% */
+    min-width: 200px; /* Prevent too small */
+  }
+  
+  .crypto-button {
+    padding: 10px 20px;
+    background-color: #00ff00;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .crypto-error {
+    color: red;
+    text-align: center;
+  }
+  
+  .crypto-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #00ff00;
+    margin-top: 20px;
+  }
+  
+  .crypto-table th,
+  .crypto-table td {
+    border: 1px solid #00ff00;
+    padding: 8px;
+    text-align: left; /* Better for long hashes */
+    word-break: break-all; /* Wrap long strings like hashes */
+  }
+  
+  .crypto-table a {
+    color: #00ff00;
+  }
+  
+  .crypto-disclaimer {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .crypto-form {
+      flex-direction: column; /* Stack form elements vertically */
+      align-items: center;
+    }
+  
+    .crypto-select,
+    .crypto-input,
+    .crypto-button {
+      width: 100%; /* Full-width on mobile */
+      margin: 5px 0; /* Spacing */
+    }
+  
+    .crypto-table {
+      font-size: 0.9rem; /* Smaller text */
+    }
+  
+    .crypto-tool-container {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .crypto-table th,
+    .crypto-table td {
+      padding: 4px; /* Tighter padding */
+    }
+  }

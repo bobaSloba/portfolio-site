@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar'; // Import for consistency (optional: remove if you don't want navbar here)
+import './CryptoTool.css';
 
 const CryptoTool = () => {
   const [chain, setChain] = useState('ETH'); // Default to ETH
@@ -67,33 +68,13 @@ const CryptoTool = () => {
   };
 
   return (
-    <div style={{
-      padding: '20px',
-      maxWidth: '900px',
-      margin: '0 auto',
-      backgroundColor: '#1e1e1e',
-      color: '#00ff00',
-      fontFamily: 'monospace',
-      border: '1px solid #00ff00',
-      borderRadius: '5px',
-      minHeight: '100vh', // Full page feel
-    }}>
-      <Navbar /> {/* Optional: Adds your site's navbar for navigation back to home */}
-      <h1 style={{ color: '#00ff00', textAlign: 'center' }}>Blockchain KYT Tracer</h1>
-      <p style={{ textAlign: 'center' }}>Select chain, enter address, trace txs (public data). Fight crime: Track funds, flag risks.</p>
+    <div className="crypto-tool-container">
+      {/* <Navbar /> */} {/* Keep this commented out or remove it entirely if the navbar doesn't fit well— we can style a custom one later */}
+      <h1>Blockchain KYT Tracer</h1>
+      <p>Select chain, enter address, trace txs (public data). Fight crime: Track funds, flag risks.</p>
       
-      <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-        <select
-          value={chain}
-          onChange={(e) => setChain(e.target.value)}
-          style={{
-            padding: '10px',
-            backgroundColor: '#000',
-            color: '#00ff00',
-            border: '1px solid #00ff00',
-            marginRight: '10px',
-          }}
-        >
+      <form onSubmit={handleSubmit} className="crypto-form">
+        <select value={chain} onChange={(e) => setChain(e.target.value)} className="crypto-select">
           <option value="ETH">Ethereum (ETH)</option>
           <option value="BTC">Bitcoin (BTC)</option>
         </select>
@@ -102,73 +83,50 @@ const CryptoTool = () => {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           placeholder={`Enter ${chain} address (e.g., ${chain === 'ETH' ? '0x123...' : '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa'})`}
-          style={{
-            width: '50%',
-            padding: '10px',
-            backgroundColor: '#000',
-            color: '#00ff00',
-            border: '1px solid #00ff00',
-          }}
+          className="crypto-input"
         />
-        <button
-          type="submit"
-          disabled={loading}
-          style={{
-            padding: '10px 20px',
-            backgroundColor: '#00ff00',
-            color: '#000',
-            border: 'none',
-            cursor: 'pointer',
-            marginLeft: '10px',
-          }}
-        >
+        <button type="submit" disabled={loading} className="crypto-button">
           {loading ? 'Tracing...' : 'Trace'}
         </button>
       </form>
-
-      {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-
+  
+      {error && <p className="crypto-error">{error}</p>}
+  
       {transactions.length > 0 && (
-        <table style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          color: '#00ff00',
-          marginTop: '20px',
-        }}>
+        <table className="crypto-table">
           <thead>
             <tr>
-              <th style={{ border: '1px solid #00ff00', padding: '8px' }}>Hash</th>
-              <th style={{ border: '1px solid #00ff00', padding: '8px' }}>Direction</th>
-              <th style={{ border: '1px solid #00ff00', padding: '8px' }}>From</th>
-              <th style={{ border: '1px solid #00ff00', padding: '8px' }}>To</th>
-              <th style={{ border: '1px solid #00ff00', padding: '8px' }}>Value ({chain})</th>
-              <th style={{ border: '1px solid #00ff00', padding: '8px' }}>Timestamp</th>
+              <th>Hash</th>
+              <th>Direction</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Value ({chain})</th>
+              <th>Timestamp</th>
             </tr>
           </thead>
           <tbody>
             {transactions.map((tx, index) => (
               <tr key={index}>
-                <td style={{ border: '1px solid #00ff00', padding: '8px' }}>
+                <td>
                   <a
                     href={chain === 'ETH' ? `https://etherscan.io/tx/${tx.hash}` : `https://live.blockcypher.com/btc/tx/${tx.hash}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#00ff00' }}
                   >
                     {tx.hash.slice(0, 10)}...
                   </a>
                 </td>
-                <td style={{ border: '1px solid #00ff00', padding: '8px' }}>{tx.direction}</td>
-                <td style={{ border: '1px solid #00ff00', padding: '8px' }}>{tx.from.slice(0, 10)}...</td>
-                <td style={{ border: '1px solid #00ff00', padding: '8px' }}>{tx.to.slice(0, 10)}...</td>
-                <td style={{ border: '1px solid #00ff00', padding: '8px' }}>{tx.value}</td>
-                <td style={{ border: '1px solid #00ff00', padding: '8px' }}>{tx.timestamp}</td>
+                <td>{tx.direction}</td>
+                <td>{tx.from.slice(0, 10)}...</td>
+                <td>{tx.to.slice(0, 10)}...</td>
+                <td>{tx.value}</td>
+                <td>{tx.timestamp}</td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-      <p style={{ fontSize: '12px', textAlign: 'center', marginTop: '20px' }}>Disclaimer: Lawful use only. Public APIs—respect limits.</p>
+      <p className="crypto-disclaimer">Disclaimer: Lawful use only. Public APIs—respect limits.</p>
     </div>
   );
 };
